@@ -1,1 +1,1 @@
-LSTMS Neural Network model that generates Jazz music :D 
+# LSTMS Neural Network model that generates Jazz music :D 
