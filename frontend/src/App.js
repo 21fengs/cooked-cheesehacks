@@ -8,6 +8,7 @@ const VALID_NOTES = [
   'B',
   'C',
   'C_#/D_b',
+  'D',
   'E_b/D_#',
   'E',
   'F',

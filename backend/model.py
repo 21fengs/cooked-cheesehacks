@@ -151,8 +151,10 @@ def run_model():
     model.load_weights("./weights/single_piece/weights.weights.h5")
 
     # generates new notes by adding the newly generated note to the end of the seed notes
-    num_notes = 150
-    generated_notes = []
+    num_notes = 100
+    generated_notes = [{"pitch": inputs[0][i][:NUM_PIANO_KEYS],
+                        "duration": inputs[0][i][NUM_PIANO_KEYS:NUM_PIANO_KEYS + len(duration_map)],
+                        "offset": inputs[0][i][-len(offset_map):]} for i in range(len(inputs[0]))]
     seed_notes = inputs[0]
     for i in range(num_notes):
         new_note = model.predict(tf.expand_dims(seed_notes, 0))

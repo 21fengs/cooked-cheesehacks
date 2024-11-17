@@ -46,7 +46,7 @@ def create_midi_file(notes, file="output.mid"):
         print(str(midi_note))
         track.append(Message('note_on', note=midi_note, velocity=64, time=0))
         # Stop the note after the duration
-        track.append(Message('note_off', note=midi_note, velocity=64, time=480))
+        track.append(Message('note_off', note=midi_note, velocity=64, time=240))
 
     # Save the MIDI file
     midi.save(file)
