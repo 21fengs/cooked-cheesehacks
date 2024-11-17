@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import MidiPlayerComponent from './MidiPlayerComponent';
 
 const VALID_NOTES = [
   'A',
@@ -98,13 +99,6 @@ function App() {
 
   return (
     <div>
-      <button type="button" onClick={midiClick}>
-        Convert to MIDI Files
-      </button>
-      {/* <p>Response from server: {response}</p> */}
-      {/* <button onClick={testPrint}>
-        print testing button
-      </button> */}
       <div className="Tempo">
         {/* <label>Song Tempo</label> // TODO: FIX LATER if have time
         <select onChange={(e) => {
@@ -115,7 +109,6 @@ function App() {
           <option value="">Select</option>
         </select> */}
       </div>
-      <br />
       <div className="row">
         <div className="col1-7">
           <h2>Notes, Click to add to input sheet music</h2>
@@ -135,6 +128,14 @@ function App() {
           <p>Sequence: {inputMusic.join(', \t')}</p>
           <button onClick={resetMusic}>Clear Sheet</button> 
         </div>
+      </div>
+      <h2>Send to Model!</h2>
+      <button type="button" onClick={midiClick}>
+        Send
+      </button>
+      <div className="midiPlayer">
+        <h1>Play your music!</h1>
+        <MidiPlayerComponent />
       </div>
     </div>
   )
