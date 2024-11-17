@@ -25,7 +25,7 @@ def create_midi_file(notes, file="output.mid"):
 
     # Save the MIDI file
     midi.save(file)
-    print(f"MIDI file saved in input_files/{file}")
+    print(f"MIDI file saved in {file}")
 
 # Example usage
 notes = [
@@ -36,4 +36,4 @@ notes = [
     (67, 480)   # G, duration 480 ticks
 ]
 
-create_midi_file(notes, "example.mid")
+# create_midi_file(notes, "input_files/it-worked.mid")
