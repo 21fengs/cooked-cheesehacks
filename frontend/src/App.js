@@ -62,12 +62,12 @@ function App() {
 
   // handles array->midi file button
   const midiClick = async () => {
-    const dataToSend = [(60, 480), (62, 480), (64, 480), (65, 480), (67, 480)];
+    // const dataToSend = [(60, 480), (62, 480), (64, 480), (65, 480), (67, 480)];
 
     console.log("midi button clicked")
     
     try {
-      const res = await axios.post('http://127.0.0.1:5000/process_data', dataToSend, {
+      const res = await axios.post('http://127.0.0.1:5000/process_data', inputMusic, {
         headers: {
           'Content-Type': 'application/json',  // Ensure it's JSON
         }

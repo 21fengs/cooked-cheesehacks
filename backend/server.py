@@ -42,6 +42,12 @@ def music_sheet():
 def process_data():
     if request.method == "POST":
         print("POST RECEIVED!!!!!!")
+        music_sheet_data = request.json        
+        if music_sheet_data is None:
+            raise ValueError("No JSON data received")
+        else: 
+            print(music_sheet_data)
+            create_midi_file(notes=music_sheet_data, file="output.mid")
         return jsonify({"status": "success!!!!"}), 200
         # I think you want to increment, that case ButtonPressed will be plus 1.
     else:

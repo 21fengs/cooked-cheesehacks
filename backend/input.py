@@ -11,17 +11,42 @@ Params:
     output_filename (str): The name of the output MIDI file.
 """
 def create_midi_file(notes, file="output.mid"):
+    midi_mapping = {'A': 57, 
+                'B_b/A_#': 58,
+                'B': 59,  
+                'C': 60,
+                'C_#/D_b': 61,
+                'D':62,
+                'E_b/D_#': 63,
+                'E': 64,
+                'F':65,
+                'F_#/G_b':66,
+                'G':67,
+                'G_#/A_b':68
+    }
+    print("notes")
+    print(notes)
+
     # Create a new MIDI file and track
     midi = MidiFile()
     track = MidiTrack()
     midi.tracks.append(track)
 
+    # # Add notes to the track
+    # for note, duration in notes:
+    #     # Start the note
+    #     track.append(Message('note_on', note=note, velocity=64, time=0))
+    #     # Stop the note after the duration
+    #     track.append(Message('note_off', note=note, velocity=64, time=duration))
     # Add notes to the track
-    for note, duration in notes:
+    for note in notes:
         # Start the note
-        track.append(Message('note_on', note=note, velocity=64, time=0))
+        midi_note = midi_mapping[note]
+
+        print(str(midi_note))
+        track.append(Message('note_on', note=midi_note, velocity=64, time=0))
         # Stop the note after the duration
-        track.append(Message('note_off', note=note, velocity=64, time=duration))
+        track.append(Message('note_off', note=midi_note, velocity=64, time=480))
 
     # Save the MIDI file
     midi.save(file)
