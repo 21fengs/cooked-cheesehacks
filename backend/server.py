@@ -2,7 +2,8 @@ from flask import Flask, request, jsonify
 import json
 from flask_cors import CORS, cross_origin
 
-from input import create_midi_file
+from tools import create_midi_file
+from model import run_model
 
 app = Flask(__name__)
 CORS(app)  # This allows cross-origin requests
@@ -48,6 +49,8 @@ def process_data():
         else: 
             print(music_sheet_data)
             create_midi_file(notes=music_sheet_data, file="output.mid")
+            # TODO: start model
+            run_model()
         return jsonify({"status": "success!!!!"}), 200
         # I think you want to increment, that case ButtonPressed will be plus 1.
     else:

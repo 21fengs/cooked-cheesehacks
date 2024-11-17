@@ -101,11 +101,7 @@ function App() {
       <button type="button" onClick={midiClick}>
         Convert to MIDI Files
       </button>
-      <form method="post">
-        <input type="submit sheet" value="Click Me" />
-      </form>
-
-      <p>Response from server: {response}</p>
+      {/* <p>Response from server: {response}</p> */}
       {/* <button onClick={testPrint}>
         print testing button
       </button> */}
